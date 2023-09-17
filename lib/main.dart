@@ -57,7 +57,7 @@ class _HomeCounterState extends State<HomeCounter> {
 
   final ButtonStyle addButtonStyle = TextButton.styleFrom(
       elevation: 20,
-      fixedSize: const Size(100, 80),
+      fixedSize: const Size(100, 60),
       backgroundColor: const Color(0xff4aad52),
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(12),
@@ -65,27 +65,27 @@ class _HomeCounterState extends State<HomeCounter> {
 
   final ButtonStyle minusButtonStyle = TextButton.styleFrom(
       elevation: 20,
-      fixedSize: const Size(100, 80),
+      fixedSize: const Size(100, 60),
       backgroundColor: const Color(0xffFF715B),
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(12),
       ));
 
   final TextStyle counterStyle = const TextStyle(
-    fontSize: 60,
+    fontSize: 48,
     fontWeight: FontWeight.bold,
     color: Colors.black,
   );
 
   final TextStyle counterNameStyle = const TextStyle(
-    fontSize: 40,
+    fontSize: 36,
     fontWeight: FontWeight.bold,
     color: Colors.white,
   );
 
   final TextStyle buttonTextStyle = const TextStyle(
     color: Colors.white,
-    fontSize: 30,
+    fontSize: 26,
     fontWeight: FontWeight.bold,
   );
 
@@ -103,195 +103,198 @@ class _HomeCounterState extends State<HomeCounter> {
                 image: AssetImage("assets/images/background1.png"),
                 fit: BoxFit.cover),
           ),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-                "Homens",
-                style: counterNameStyle,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  TextButton(
-                    onPressed: () {
-                      isEmpty(CounterType.men)
-                          ? ()
-                          : decrement(CounterType.men);
-                    },
-                    style: minusButtonStyle,
-                    child: Text(
-                      "-1",
-                      style: buttonTextStyle,
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(20),
-                    child: Text(
-                      '${counters[CounterType.men]}',
-                      style: counterStyle,
-                    ),
-                  ),
-                  TextButton(
-                    onPressed: () {
-                      increment(CounterType.men);
-                    },
-                    style: addButtonStyle,
-                    child: const Text(
-                      "+1",
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 30,
-                        fontWeight: FontWeight.bold,
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 16),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  "Homens",
+                  style: counterNameStyle,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    TextButton(
+                      onPressed: () {
+                        isEmpty(CounterType.men)
+                            ? ()
+                            : decrement(CounterType.men);
+                      },
+                      style: minusButtonStyle,
+                      child: Text(
+                        "-1",
+                        style: buttonTextStyle,
                       ),
                     ),
-                  ),
-                ],
-              ),
-              Text(
-                "Mulheres",
-                style: counterNameStyle,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  TextButton(
-                    onPressed: () {
-                      isEmpty(CounterType.women)
-                          ? ()
-                          : decrement(CounterType.women);
-                    },
-                    style: minusButtonStyle,
-                    child: Text(
-                      "-1",
-                      style: buttonTextStyle,
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(20),
-                    child: Text(
-                      '${counters[CounterType.women]}',
-                      style: counterStyle,
-                    ),
-                  ),
-                  TextButton(
-                    onPressed: () {
-                      increment(CounterType.women);
-                    },
-                    style: addButtonStyle,
-                    child: const Text(
-                      "+1",
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 30,
-                        fontWeight: FontWeight.bold,
+                    Padding(
+                      padding: const EdgeInsets.all(20),
+                      child: Text(
+                        '${counters[CounterType.men]}',
+                        style: counterStyle,
                       ),
                     ),
-                  ),
-                ],
-              ),
-              Text(
-                "Equipe",
-                style: counterNameStyle,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  TextButton(
-                    onPressed: () {
-                      isEmpty(CounterType.staff)
-                          ? ()
-                          : decrement(CounterType.staff);
-                    },
-                    style: minusButtonStyle,
-                    child: Text(
-                      "-1",
-                      style: buttonTextStyle,
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(20),
-                    child: Text(
-                      '${counters[CounterType.staff]}',
-                      style: counterStyle,
-                    ),
-                  ),
-                  TextButton(
-                    onPressed: () {
-                      increment(CounterType.staff);
-                    },
-                    style: addButtonStyle,
-                    child: const Text(
-                      "+1",
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 30,
-                        fontWeight: FontWeight.bold,
+                    TextButton(
+                      onPressed: () {
+                        increment(CounterType.men);
+                      },
+                      style: addButtonStyle,
+                      child: const Text(
+                        "+1",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 30,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ),
-                  ),
-                ],
-              ),
-              Text(
-                "Crianças",
-                style: counterNameStyle,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  TextButton(
-                    onPressed: () {
-                      isEmpty(CounterType.children)
-                          ? ()
-                          : decrement(CounterType.children);
-                    },
-                    style: minusButtonStyle,
-                    child: Text(
-                      "-1",
-                      style: buttonTextStyle,
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(20),
-                    child: Text(
-                      '${counters[CounterType.children]}',
-                      style: counterStyle,
-                    ),
-                  ),
-                  TextButton(
-                    onPressed: () {
-                      increment(CounterType.children);
-                    },
-                    style: addButtonStyle,
-                    child: const Text(
-                      "+1",
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 30,
-                        fontWeight: FontWeight.bold,
+                  ],
+                ),
+                Text(
+                  "Mulheres",
+                  style: counterNameStyle,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    TextButton(
+                      onPressed: () {
+                        isEmpty(CounterType.women)
+                            ? ()
+                            : decrement(CounterType.women);
+                      },
+                      style: minusButtonStyle,
+                      child: Text(
+                        "-1",
+                        style: buttonTextStyle,
                       ),
                     ),
+                    Padding(
+                      padding: const EdgeInsets.all(20),
+                      child: Text(
+                        '${counters[CounterType.women]}',
+                        style: counterStyle,
+                      ),
+                    ),
+                    TextButton(
+                      onPressed: () {
+                        increment(CounterType.women);
+                      },
+                      style: addButtonStyle,
+                      child: const Text(
+                        "+1",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 30,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                Text(
+                  "Equipe",
+                  style: counterNameStyle,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    TextButton(
+                      onPressed: () {
+                        isEmpty(CounterType.staff)
+                            ? ()
+                            : decrement(CounterType.staff);
+                      },
+                      style: minusButtonStyle,
+                      child: Text(
+                        "-1",
+                        style: buttonTextStyle,
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(20),
+                      child: Text(
+                        '${counters[CounterType.staff]}',
+                        style: counterStyle,
+                      ),
+                    ),
+                    TextButton(
+                      onPressed: () {
+                        increment(CounterType.staff);
+                      },
+                      style: addButtonStyle,
+                      child: const Text(
+                        "+1",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 30,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                Text(
+                  "Crianças",
+                  style: counterNameStyle,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    TextButton(
+                      onPressed: () {
+                        isEmpty(CounterType.children)
+                            ? ()
+                            : decrement(CounterType.children);
+                      },
+                      style: minusButtonStyle,
+                      child: Text(
+                        "-1",
+                        style: buttonTextStyle,
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(20),
+                      child: Text(
+                        '${counters[CounterType.children]}',
+                        style: counterStyle,
+                      ),
+                    ),
+                    TextButton(
+                      onPressed: () {
+                        increment(CounterType.children);
+                      },
+                      style: addButtonStyle,
+                      child: const Text(
+                        "+1",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 30,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                TextButton(
+                  onPressed: clearAll,
+                  style: TextButton.styleFrom(
+                    elevation: 20,
+                    fixedSize: const Size(200, 20),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12),
+                    ),
                   ),
-                ],
-              ),
-              TextButton(
-                onPressed: clearAll,
-                style: TextButton.styleFrom(
-                  elevation: 20,
-                  fixedSize: const Size(200, 20),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(12),
+                  child: const Text(
+                    "Reset all",
+                    style: TextStyle(
+                      fontSize: 18,
+                      color: Colors.black,
+                    ),
                   ),
                 ),
-                child: const Text(
-                  "Reset all",
-                  style: TextStyle(
-                    fontSize: 18,
-                    color: Colors.black,
-                  ),
-                ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),

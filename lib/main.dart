@@ -93,9 +93,6 @@ class _HomeCounterState extends State<HomeCounter> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        appBar: AppBar(
-          title: const Text('ZCounter'),
-        ),
         body: Container(
           decoration: const BoxDecoration(
             // color: Color(0xFF006D6D),

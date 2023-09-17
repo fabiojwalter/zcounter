@@ -101,7 +101,7 @@ class _HomeCounterState extends State<HomeCounter> {
                 fit: BoxFit.cover),
           ),
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 16),
+            padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 0),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -125,7 +125,7 @@ class _HomeCounterState extends State<HomeCounter> {
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.all(20),
+                      padding: const EdgeInsets.fromLTRB(20, 5, 20, 0),
                       child: Text(
                         '${counters[CounterType.men]}',
                         style: counterStyle,
@@ -167,7 +167,7 @@ class _HomeCounterState extends State<HomeCounter> {
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.all(20),
+                      padding: const EdgeInsets.fromLTRB(20, 5, 20, 0),
                       child: Text(
                         '${counters[CounterType.women]}',
                         style: counterStyle,
@@ -209,7 +209,7 @@ class _HomeCounterState extends State<HomeCounter> {
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.all(20),
+                      padding: const EdgeInsets.fromLTRB(20, 5, 20, 0),
                       child: Text(
                         '${counters[CounterType.staff]}',
                         style: counterStyle,
@@ -251,7 +251,7 @@ class _HomeCounterState extends State<HomeCounter> {
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.all(20),
+                      padding: const EdgeInsets.fromLTRB(20, 5, 20, 0),
                       child: Text(
                         '${counters[CounterType.children]}',
                         style: counterStyle,

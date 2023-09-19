@@ -23,12 +23,11 @@ class HomeCounter extends StatefulWidget {
   State<HomeCounter> createState() => _HomeCounterState();
 }
 
-enum CounterType { men, women, children, staff }
+enum CounterType { adults, children, staff }
 
 class _HomeCounterState extends State<HomeCounter> {
   Map<CounterType, int> counters = {
-    CounterType.men: 0,
-    CounterType.women: 0,
+    CounterType.adults: 0,
     CounterType.children: 0,
     CounterType.staff: 0,
   };
@@ -95,18 +94,18 @@ class _HomeCounterState extends State<HomeCounter> {
       child: Scaffold(
         body: Container(
           decoration: const BoxDecoration(
-            // color: Color(0xFF006D6D),
-            image: DecorationImage(
-                image: AssetImage("assets/images/background1.png"),
-                fit: BoxFit.cover),
+            color: Color(0xFF006D6D),
+            // image: DecorationImage(
+            //     image: AssetImage("assets/images/background1.png"),
+            //     fit: BoxFit.cover),
           ),
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 0),
+            padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 10),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  "Homens",
+                  "Adultos",
                   style: counterNameStyle,
                 ),
                 Row(
@@ -114,9 +113,9 @@ class _HomeCounterState extends State<HomeCounter> {
                   children: [
                     TextButton(
                       onPressed: () {
-                        isEmpty(CounterType.men)
+                        isEmpty(CounterType.adults)
                             ? ()
-                            : decrement(CounterType.men);
+                            : decrement(CounterType.adults);
                       },
                       style: minusButtonStyle,
                       child: Text(
@@ -125,15 +124,15 @@ class _HomeCounterState extends State<HomeCounter> {
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.fromLTRB(20, 5, 20, 0),
+                      padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
                       child: Text(
-                        '${counters[CounterType.men]}',
+                        '${counters[CounterType.adults]}',
                         style: counterStyle,
                       ),
                     ),
                     TextButton(
                       onPressed: () {
-                        increment(CounterType.men);
+                        increment(CounterType.adults);
                       },
                       style: addButtonStyle,
                       child: const Text(
@@ -147,93 +146,12 @@ class _HomeCounterState extends State<HomeCounter> {
                     ),
                   ],
                 ),
-                Text(
-                  "Mulheres",
-                  style: counterNameStyle,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    TextButton(
-                      onPressed: () {
-                        isEmpty(CounterType.women)
-                            ? ()
-                            : decrement(CounterType.women);
-                      },
-                      style: minusButtonStyle,
-                      child: Text(
-                        "-1",
-                        style: buttonTextStyle,
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.fromLTRB(20, 5, 20, 0),
-                      child: Text(
-                        '${counters[CounterType.women]}',
-                        style: counterStyle,
-                      ),
-                    ),
-                    TextButton(
-                      onPressed: () {
-                        increment(CounterType.women);
-                      },
-                      style: addButtonStyle,
-                      child: const Text(
-                        "+1",
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 30,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-                Text(
-                  "Equipe",
-                  style: counterNameStyle,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    TextButton(
-                      onPressed: () {
-                        isEmpty(CounterType.staff)
-                            ? ()
-                            : decrement(CounterType.staff);
-                      },
-                      style: minusButtonStyle,
-                      child: Text(
-                        "-1",
-                        style: buttonTextStyle,
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.fromLTRB(20, 5, 20, 0),
-                      child: Text(
-                        '${counters[CounterType.staff]}',
-                        style: counterStyle,
-                      ),
-                    ),
-                    TextButton(
-                      onPressed: () {
-                        increment(CounterType.staff);
-                      },
-                      style: addButtonStyle,
-                      child: const Text(
-                        "+1",
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 30,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-                Text(
-                  "Crianças",
-                  style: counterNameStyle,
+                Padding(
+                  padding: const EdgeInsets.only(top: 20),
+                  child: Text(
+                    "Crianças",
+                    style: counterNameStyle,
+                  ),
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -251,7 +169,7 @@ class _HomeCounterState extends State<HomeCounter> {
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.fromLTRB(20, 5, 20, 0),
+                      padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
                       child: Text(
                         '${counters[CounterType.children]}',
                         style: counterStyle,
@@ -260,6 +178,51 @@ class _HomeCounterState extends State<HomeCounter> {
                     TextButton(
                       onPressed: () {
                         increment(CounterType.children);
+                      },
+                      style: addButtonStyle,
+                      child: const Text(
+                        "+1",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 30,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(top: 20),
+                  child: Text(
+                    "Voluntários",
+                    style: counterNameStyle,
+                  ),
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    TextButton(
+                      onPressed: () {
+                        isEmpty(CounterType.staff)
+                            ? ()
+                            : decrement(CounterType.staff);
+                      },
+                      style: minusButtonStyle,
+                      child: Text(
+                        "-1",
+                        style: buttonTextStyle,
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
+                      child: Text(
+                        '${counters[CounterType.staff]}',
+                        style: counterStyle,
+                      ),
+                    ),
+                    TextButton(
+                      onPressed: () {
+                        increment(CounterType.staff);
                       },
                       style: addButtonStyle,
                       child: const Text(
@@ -313,8 +276,7 @@ class _HomeCounterState extends State<HomeCounter> {
                 ),
                 TextButton(
                   onPressed: () {
-                    resetCounter(CounterType.men);
-                    resetCounter(CounterType.women);
+                    resetCounter(CounterType.adults);
                     resetCounter(CounterType.staff);
                     resetCounter(CounterType.children);
                     Navigator.of(context).pop();
